@@ -9,27 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   </head>
   <body>
-    <video id="video" width="100%"
-    height="100%"
-    controls
-    autoplay
-    class="videoCentered"></video>
-    <script>
-      var video = document.getElementById('video');
-      var videoSrc = 'https://dtad8g68w4qd5.cloudfront.net/out/v1/6a6b40ae589249ceaa999c7cfcf116e9/dgb-live.m3u8';
-      //
-      // First check for native browser HLS support
-      //
-      if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = videoSrc;
-        //
-        // If no native HLS support, check if HLS.js is supported
-        //
-      } else if (Hls.isSupported()) {
-        var hls = new Hls();
-        hls.loadSource(videoSrc);
-        hls.attachMedia(video);
-      }      
-    </script>
+    <img id="video" src="https://www.fillmurray.com/720/405">
+    <p>Oops! Something must have gone wrong.</p>
   </body>
 </html>

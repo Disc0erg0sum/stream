@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stream</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  </head>
+  <body>
+    <video id="video" width="100%"
+    height="100%"
+    controls
+    poster="https://niedersachsen.dgb.de/++co++4f141f98-1239-11ed-bc89-001a4a160123/teaserimage/scaled/size/720"></video>
+    <script>
+      var video = document.getElementById('video');
+      var videoSrc = 'https://dtad8g68w4qd5.cloudfront.net/out/v1/6a6b40ae589249ceaa999c7cfcf116e9/dgb-live.m3u8';
+      //
+      // First check for native browser HLS support
+      //
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = videoSrc;
+        //
+        // If no native HLS support, check if HLS.js is supported
+        //
+      } else if (Hls.isSupported()) {
+        var hls = new Hls();
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+      }      
+    </script>
+  </body>
+</html>
